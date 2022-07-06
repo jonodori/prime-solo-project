@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -13,22 +15,40 @@ function LandingPage() {
     history.push('/login');
   };
 
+  const games = [
+    { label: 'Apex'},
+    { label: 'Street Fighter' },
+    { label: 'Guilty Gear Strive' },
+    { label: 'Valorant'},
+    { label: 'League of Legends' },
+    { label: "Super Smash Bros Ultimate" },
+    { label: 'Fortnite' }
+  ]
+
   return (
+    <>
+    <form onSubmit>
+    <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={games}
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Games" />}
+    />
+    <span><input type="text" id="cityzip" placeholder="City or Zipcode" /></span>
+    <input type="date" id="date"></input>
+    <button type="Submit">Submit</button>
+    </form>
+
+    <button>Create tournament</button>
+    <h2>Local Tournaments</h2>
     <div className="container">
       <h2>{heading}</h2>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+          
           </p>
 
           <p>
@@ -63,6 +83,8 @@ function LandingPage() {
         </div>
       </div>
     </div>
+
+    </>
   );
 }
 
