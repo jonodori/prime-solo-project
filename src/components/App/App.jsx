@@ -20,6 +20,13 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import Details from '../Details/Details';
+import JoinTournament from '../JoinTournament/JoinTournament';
+import TournamentList from '../TournamentList/TournamentList';
+import CreateTournament from '../CreateTournament/CreateTournament';
+import OrganizersList from '../OrganizersList/OrganizersList';
+import OrganizersEdit from '../OrganizersEdit/OrganizersEdit';
+
 import './App.css';
 
 function App() {
@@ -109,6 +116,30 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+          <Route exact path="/details">
+            <Details />
+          </Route>
+
+          <Route exact path="/join">
+            <JoinTournament />
+          </Route>
+
+          <Route exact path="/tournamentlist">
+            <TournamentList />
+          </Route>
+
+          <ProtectedRoute exact path="/create">
+            <CreateTournament />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/created">
+            <OrganizersList />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/edit">
+            <OrganizersEdit />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

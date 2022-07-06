@@ -38,8 +38,10 @@ function LandingPage() {
     <span><input type="text" id="cityzip" placeholder="City or Zipcode" /></span>
     <input type="date" id="date"></input>
     <button type="Submit">Submit</button>
-    
     </form>
+
+    <button>Create tournament</button>
+    <h2>Local Tournaments</h2>
     <div className="container">
       <h2>{heading}</h2>
 
