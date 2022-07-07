@@ -16,16 +16,17 @@ CREATE TABLE "user" (
 CREATE TABLE "tournaments" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (50) NOT NULL,
+    "primary_contact" VARCHAR (255), 
     "start_date" date,
     "end_date" date,
-    "city" text,
-    "zip_code" varchar(5) NOT NULL, 
+    "city" text, 
     "logo" varchar(255),
     "rules" text,
     "prizes" text, 
     "details" text,
     "schedule" text
 );
+
 
 
 

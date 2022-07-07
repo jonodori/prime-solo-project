@@ -71,16 +71,7 @@ function LandingPage() {
             amet nisi.
           </p>
         </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
+       
       </div>
     </div>
 
