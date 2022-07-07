@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
   const sqlQuery = `
   SELECT * 
       FROM tournaments
+      JOIN class
       `;
   
 
@@ -22,7 +23,7 @@ router.get('/', (req, res) => {
     res.send(result.rows);
   })
   .catch(err => {
-    console.log('ERROR in GET tournaments', err);
+    console.log('ERROR in GET', err);
     res.sendStatus(500)
   })    
 });
@@ -30,13 +31,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   
     const sqlQuery=`
-    INSERT INTO "tournaments" (tournament_name, primary_contact, start_date, end_date, logo, zip_code, rules, prizes,
-        details, schedule, game)
+    INSERT INTO "tournaments" (tournament_name, primary_contact, start_date, end_date, zip_code, logo, rules, prizes,
+        details, game)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `;
     console.log('')
     const sqlParams=[req.body.name, req.body.primaryContact, req.body.startDate, 
-        req.body.endDate, req.body.zipcode, req.body.rules, req.body.prizes, req.body.details 
+        req.body.endDate, req.body.zipcode, req.body.logo, req.body.rules, req.body.prizes, req.body.details,
+        req.body.game
         ];
   
     pool.query(sqlQuery, sqlParams)
