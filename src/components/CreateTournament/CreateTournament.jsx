@@ -1,17 +1,40 @@
 import React, {useState} from "react";
+import { useDispatch } from "react-redux";
 
 function CreateTournament(){
+    const dispatch = useDispatch();
 
     const [name, setName] = useState('');
     const [primaryContact, setPrimaryContact] = useState('');
-    const [location, setLocation] = useState('');
+    const [city, setCity] = useState('');
     const [rules, setRules] = useState('');
     const [prizes, setPrizes] = useState('');
     const [details, setDetails] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
-    
+    const handleSubmit = (evt) => {
+        console.log('test');
+       
+        const tournamentInfo = {
+            name: name,
+            primaryContact: primaryContact,
+            city: city,
+            rules: rules,
+            prizes: prizes,
+            game: game,
+            details: details,
+            startDate: startDate,
+            endDate: endDate
+        }
+        console.log('In handle submit', tournamentInfo);
+
+        evt.preventDefault()
+        dispatch({
+            type: 'SET_TOURNAMENT_INFO',
+            payload: tournamentInfo
+        })
+    }
 
     return (
         <>
@@ -32,10 +55,10 @@ function CreateTournament(){
         placeholder="" 
         />
 
-        <h4>Location</h4>
+        <h4>City</h4>
         <input type="text" id="location" 
-        value={location} 
-        onChange={(event) => setLocation(event.target.value)}
+        value={city} 
+        onChange={(event) => setCity(event.target.value)}
         placeholder=""
         />
 
@@ -67,13 +90,13 @@ function CreateTournament(){
         
         <h4>Dates</h4>
         <h6>Start Date and Time</h6>
-        <input type="datetime-local" id="start-date" 
+        <input type="date" id="start-date" 
         value={startDate} 
         onChange={(event) => setStartDate(event.target.value)}
         placeholder="Start Date and time" />
 
         <h6>End Date and Time</h6>
-        <input type="datetime-local" id="end-date" 
+        <input type="date" id="end-date" 
         value={endDate} 
         onChange={(event) => setEndDate(event.target.value)}
         placeholder="End Date and time" />
