@@ -72,6 +72,13 @@ function CreateTournament(){
         placeholder=""
         />
 
+        <h4>Game</h4>
+        <input type="text" id="game" 
+        value={game} 
+        onChange={(event) => setGame(event.target.value)}
+        placeholder=""
+        />
+
         <h4>Rules</h4>
         <input type="text" id="rules" 
         value={rules} 
@@ -93,12 +100,7 @@ function CreateTournament(){
         placeholder=""
         />
         
-        <h4>Game</h4>
-        <input type="text" id="game" 
-        value={game} 
-        onChange={(event) => setGame(event.target.value)}
-        placeholder=""
-        />
+        
         
        
         
