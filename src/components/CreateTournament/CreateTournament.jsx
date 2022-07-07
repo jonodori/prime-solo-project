@@ -6,12 +6,14 @@ function CreateTournament(){
 
     const [name, setName] = useState('');
     const [primaryContact, setPrimaryContact] = useState('');
-    const [city, setCity] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [logo, setLogo] = useState('');
     const [rules, setRules] = useState('');
     const [prizes, setPrizes] = useState('');
     const [details, setDetails] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    const [game, setGame] = useState('');
 
     const handleSubmit = (evt) => {
         console.log('test');
@@ -19,14 +21,15 @@ function CreateTournament(){
         const tournamentInfo = {
             name: name,
             primaryContact: primaryContact,
-            city: city,
+            startDate: startDate,
+            endDate: endDate,
+            zipcode: zipcode,
+            logo: logo,
             rules: rules,
             prizes: prizes,
-            game: game,
             details: details,
-            startDate: startDate,
-            endDate: endDate
-        }
+            game: game
+          }
         console.log('In handle submit', tournamentInfo);
 
         evt.preventDefault()
@@ -55,36 +58,51 @@ function CreateTournament(){
         placeholder="" 
         />
 
-        <h4>City</h4>
-        <input type="text" id="location" 
-        value={city} 
-        onChange={(event) => setCity(event.target.value)}
+        <h4>Zip Code</h4>
+        <input type="text" id="zipcode" 
+        value={zipcode} 
+        onChange={(event) => setZipcode(event.target.value)}
+        placeholder=""
+        />
+
+        <h4>Logo</h4>
+        <input type="text" id="logo" 
+        value={logo} 
+        onChange={(event) => setLogo(event.target.value)}
+        placeholder=""
+        />
+
+        <h4>Game</h4>
+        <input type="text" id="game" 
+        value={game} 
+        onChange={(event) => setGame(event.target.value)}
         placeholder=""
         />
 
         <h4>Rules</h4>
-        <input type="text" id="address" 
+        <input type="text" id="rules" 
         value={rules} 
         onChange={(event) => setRules(event.target.value)}
         placeholder=""
         />
 
         <h4>Prizes</h4>
-        <input type="text" id="address" 
+        <input type="text" id="prizes" 
         value={prizes} 
         onChange={(event) => setPrizes(event.target.value)}
         placeholder=""
         />
 
         <h4>Details</h4>
-        <input type="text" id="address" 
+        <input type="text" id="details" 
         value={details} 
         onChange={(event) => setDetails(event.target.value)}
         placeholder=""
         />
-     
-        <h4>Game</h4>
-        <input type="text" id="game" placeholder="" />
+        
+        
+        
+       
         
         <h4>Dates</h4>
         <h6>Start Date and Time</h6>

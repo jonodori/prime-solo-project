@@ -6,16 +6,39 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  // YOUR CODE HERE
+ 
+  const sqlQuery = `
+  SELECT * 
+      FROM tournaments
+      JOIN class
+      `;
+  
+
+  pool.query(sqlQuery)
+  .then( result => {
+      console.log('result.rows', result.rows)
+
+    res.send(result.rows);
+  })
+  .catch(err => {
+    console.log('ERROR in GET', err);
+    res.sendStatus(500)
+  })    
+});
+
 router.post('/', (req, res) => {
   
     const sqlQuery=`
-    INSERT INTO "tournaments" (name, primary_contact, start_date, end_date, city, rules, prizes,
-        details)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+    INSERT INTO "tournaments" (tournament_name, primary_contact, start_date, end_date, zip_code, logo, rules, prizes,
+        details, game)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `;
     console.log('')
-    const sqlParams=[req.body.name, req.body.primary_contact, req.body.start_date, 
-        req.body.end_date, req.body.city, req.body.rules, req.body.prizes, req.body.details 
+    const sqlParams=[req.body.name, req.body.primaryContact, req.body.startDate, 
+        req.body.endDate, req.body.zipcode, req.body.logo, req.body.rules, req.body.prizes, req.body.details,
+        req.body.game
         ];
   
     pool.query(sqlQuery, sqlParams)

@@ -22,7 +22,9 @@ function* addTournament(action) {
    }
 
 function* tournamentSaga(){
+    console.log('made it to tournament sagas')
     yield takeLatest('SET_TOURNAMENT_INFO', addTournament)
+    console.log('hit Sagas')
 }
 
 export default tournamentSaga;
