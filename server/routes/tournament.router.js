@@ -6,16 +6,37 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  // YOUR CODE HERE
+ 
+  const sqlQuery = `
+  SELECT * 
+      FROM tournaments
+      `;
+  
+
+  pool.query(sqlQuery)
+  .then( result => {
+      console.log('result.rows', result.rows)
+
+    res.send(result.rows);
+  })
+  .catch(err => {
+    console.log('ERROR in GET tournaments', err);
+    res.sendStatus(500)
+  })    
+});
+
 router.post('/', (req, res) => {
   
     const sqlQuery=`
-    INSERT INTO "tournaments" (name, primary_contact, start_date, end_date, city, rules, prizes,
-        details)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+    INSERT INTO "tournaments" (tournament_name, primary_contact, start_date, end_date, logo, zip_code, rules, prizes,
+        details, schedule, game)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `;
     console.log('')
-    const sqlParams=[req.body.name, req.body.primary_contact, req.body.start_date, 
-        req.body.end_date, req.body.city, req.body.rules, req.body.prizes, req.body.details 
+    const sqlParams=[req.body.name, req.body.primaryContact, req.body.startDate, 
+        req.body.endDate, req.body.zipcode, req.body.rules, req.body.prizes, req.body.details 
         ];
   
     pool.query(sqlQuery, sqlParams)

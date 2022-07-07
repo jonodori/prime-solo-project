@@ -6,12 +6,15 @@ function CreateTournament(){
 
     const [name, setName] = useState('');
     const [primaryContact, setPrimaryContact] = useState('');
-    const [city, setCity] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [logo, setLogo] = useState('');
     const [rules, setRules] = useState('');
     const [prizes, setPrizes] = useState('');
     const [details, setDetails] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    const [schedule, setSchedule] = useState('');
+    const [game, setGame] = useState('');
 
     const handleSubmit = (evt) => {
         console.log('test');
@@ -19,13 +22,14 @@ function CreateTournament(){
         const tournamentInfo = {
             name: name,
             primaryContact: primaryContact,
-            city: city,
+            startDate: startDate,
+            endDate: endDate,
+            zipcode: zipcode,
             rules: rules,
             prizes: prizes,
-            game: game,
-            details: details,
-            startDate: startDate,
-            endDate: endDate
+            details: details, 
+            schedule, schedule,
+            game, game           
         }
         console.log('In handle submit', tournamentInfo);
 
@@ -55,10 +59,17 @@ function CreateTournament(){
         placeholder="" 
         />
 
-        <h4>City</h4>
-        <input type="text" id="location" 
-        value={city} 
-        onChange={(event) => setCity(event.target.value)}
+        <h4>Zip Code</h4>
+        <input type="text" id="zipcode" 
+        value={zipcode} 
+        onChange={(event) => setZipcode(event.target.value)}
+        placeholder=""
+        />
+
+        <h4>Logo</h4>
+        <input type="text" id="logo" 
+        value={logo} 
+        onChange={(event) => setLogo(event.target.value)}
         placeholder=""
         />
 
@@ -83,8 +94,7 @@ function CreateTournament(){
         placeholder=""
         />
      
-        <h4>Game</h4>
-        <input type="text" id="game" placeholder="" />
+       
         
         <h4>Dates</h4>
         <h6>Start Date and Time</h6>
@@ -97,6 +107,18 @@ function CreateTournament(){
         <input type="date" id="end-date" 
         value={endDate} 
         onChange={(event) => setEndDate(event.target.value)}
+        placeholder="End Date and time" />
+
+        <h6>Schedule</h6>
+        <input type="schedule" id="setSchedule" 
+        value={schedule} 
+        onChange={(event) => setSchedule(event.target.value)}
+        placeholder="End Date and time" />
+
+        <h6>Game</h6>
+        <input type="game" id="game" 
+        value={game} 
+        onChange={(event) => setGame(event.target.value)}
         placeholder="End Date and time" />
 
         <button type="Submit">Submit</button>
