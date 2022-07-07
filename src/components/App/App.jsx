@@ -129,9 +129,9 @@ function App() {
             <TournamentList />
           </Route>
 
-          <ProtectedRoute exact path="/create">
+          <Route exact path="/create">
             <CreateTournament />
-          </ProtectedRoute>
+          </Route>
 
           <ProtectedRoute exact path="/created">
             <OrganizersList />
