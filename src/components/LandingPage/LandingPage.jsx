@@ -7,10 +7,12 @@ import { useEffect } from 'react';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-const tournaments = useSelector(store => store.tournamentList);
+
 
 function LandingPage() {
   
+  const tournaments = useSelector(store => store.tournamentList);
+
   const history = useHistory();
 
   
@@ -52,7 +54,16 @@ function LandingPage() {
 
       
       <h2>Local Tournaments</h2>
-      
+        {tournaments.map(tournament => {
+          return (
+            <li key ={tournament.id}>
+              {tournament.id}
+              {tournament.name}
+              {tournament.addrState}
+              <img src= {tournament.images[0] && tournament.images[0].url} />
+            </li>
+          )
+        })}
 
     </>
   );
