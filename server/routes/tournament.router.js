@@ -27,6 +27,7 @@ router.get('/:state', (req, res) => {
           perPage: 20
           filter: {
             addrState: "${state}"
+            upcoming: true
           }
         }) {
           nodes {
@@ -35,10 +36,14 @@ router.get('/:state', (req, res) => {
             addrState
             images{
               url
+              
             }
           }
         }
-      },`,
+      },
+      `,
+
+      
     }
 
     axios({

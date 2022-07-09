@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -20,6 +22,8 @@ function LandingPage() {
 
   const dispatch = useDispatch();
 
+  
+
   const onLogin = (event) => {
     history.push('/login');
   };
@@ -33,6 +37,14 @@ function LandingPage() {
       
     })
   }
+
+  const details = (id) => {
+
+    dispatch({
+        type: 'FETCH_DETAILS',
+        payload: movieId
+    })
+}
 
   
   
@@ -54,16 +66,43 @@ function LandingPage() {
 
       
       <h2>Local Tournaments</h2>
-        {tournaments.map(tournament => {
-          return (
-            <li key ={tournament.id}>
-              {tournament.id}
-              {tournament.name}
-              {tournament.addrState}
-              <img src= {tournament.images[0] && tournament.images[0].url} />
-            </li>
-          )
-        })}
+      
+    
+<table>
+<thead>
+    <tr>
+    <th>tournament id</th>
+    <th>tournament name</th>
+    <th>tournament state</th>
+    <th>tournament image</th>
+   
+    </tr>
+</thead>
+<tbody>
+    {tournaments.map(tournament => (
+        <tr key = {tournament.id}>
+            
+            <td>{tournament.id}</td>
+            <td>
+            <Link
+            onClick={ () => {
+              history.push('/details'+ tournament.id)
+            }}
+            >{tournament.name}</Link></td>
+            <td>{tournament.addrState}</td>
+            <td>
+            
+            <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
+            
+            <
+
+            </td>
+            
+        </tr>
+    ))}
+</tbody>  
+</table>
+        
 
     </>
   );

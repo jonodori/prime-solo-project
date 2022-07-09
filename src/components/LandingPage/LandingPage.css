@@ -78,3 +78,9 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+.image{
+  width: 100px;
+  height: 100px;
+  object-fit: cover
+}
