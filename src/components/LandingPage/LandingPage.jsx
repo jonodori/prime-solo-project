@@ -7,8 +7,10 @@ import { useEffect } from 'react';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
+const tournaments = useSelector(store => store.tournamentList);
+
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  
   const history = useHistory();
 
   
@@ -37,32 +39,20 @@ function LandingPage() {
     <>
     <form onSubmit={fetchTournaments}>
 
-    <br></br>
+      <br></br>
    
-    <input type="text" id="state"
-    value={state} 
-    placeholder="State" 
-    onChange={(event) => setState(event.target.value)}
-    />
+      <input type="text" id="state"
+      value={state} 
+      placeholder="State" 
+      onChange={(event) => setState(event.target.value)}
+      />
+        
+      <button type="Submit">Submit</button>
+      </form>
+
       
-    <button type="Submit">Submit</button>
-    </form>
-
-    
-    <h2>Local Tournaments</h2>
-    <div className="container">
-      <h2>{heading}</h2>
-
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-          
-          </p>
-
-        </div>
-       
-      </div>
-    </div>
+      <h2>Local Tournaments</h2>
+      
 
     </>
   );
