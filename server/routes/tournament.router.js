@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/:state', (req, res) => {
 
   const { state } = req.params;
-  console.log(state)
+  console.log('<=', state)
 
   const endpoint = "https://api.start.gg/gql/alpha";
 
@@ -31,13 +31,14 @@ router.get('/:state', (req, res) => {
           }
         }) {
           nodes {
+            venueAddress
             id
             name
             addrState
             images{
               url
-              
             }
+            
           }
         }
       },

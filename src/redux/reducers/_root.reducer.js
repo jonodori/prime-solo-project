@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import tournamentInfo from './tournamentInfo.reducer';
 import tournamentList from './tournamentList.reducer';
+import details from './details.reducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   tournamentInfo,
-  tournamentList
+  tournamentList,
+  details
 });
 
 export default rootReducer;

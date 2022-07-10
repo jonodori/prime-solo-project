@@ -4,6 +4,8 @@ import './LandingPage.css';
 import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Details from '../Details/Details';
+
 
 
 // CUSTOM COMPONENTS
@@ -39,15 +41,9 @@ function LandingPage() {
   }
 
   const details = (id) => {
-
-    dispatch({
-        type: 'FETCH_DETAILS',
-        payload: movieId
-    })
-}
-
-  
-  
+    
+    history.push('/details/:id')
+  }
 
   return (
     <>
@@ -81,23 +77,21 @@ function LandingPage() {
 <tbody>
     {tournaments.map(tournament => (
         <tr key = {tournament.id}>
-            
             <td>{tournament.id}</td>
-            <td>
-            <Link
-            onClick={ () => {
-              history.push('/details'+ tournament.id)
-            }}
-            >{tournament.name}</Link></td>
+            {/* <Link to = {`/details/${tournament.id}`}> */}
+            <td> 
+              
+              <Link to = {`/details/${tournament.id}`} >{tournament.name}</Link>
+              
+            
+            </td>
             <td>{tournament.addrState}</td>
             <td>
             
             <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
-            
-            <
-
+          
             </td>
-            
+
         </tr>
     ))}
 </tbody>  
