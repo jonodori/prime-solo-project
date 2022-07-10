@@ -54,7 +54,7 @@ function LandingPage() {
       <input type="text" id="state"
       value={state} 
       placeholder="State" 
-      onChange={(event) => setState(event.target.value)}
+      onChange={(event) => setState(event.target.value.toUpperCase())}
       />
         
       <button type="Submit">Submit</button>
@@ -75,7 +75,7 @@ function LandingPage() {
     </tr>
 </thead>
 <tbody>
-    {tournaments.map(tournament => (
+    {tournaments && tournaments.map(tournament => (
         <tr key = {tournament.id}>
             <td>{tournament.id}</td>
             {/* <Link to = {`/details/${tournament.id}`}> */}
