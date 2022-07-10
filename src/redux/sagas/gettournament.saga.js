@@ -3,7 +3,7 @@ import { put, takeLatest} from 'redux-saga/effects';
 
 
 function* fetchTournament(action) {
-   console.log(action); 
+   console.log('=>', action); 
    
    try {
        const res = yield axios.get(`/api/tournament/${action.payload}`);
@@ -13,7 +13,6 @@ function* fetchTournament(action) {
        console.error('error is', err)
     }
    }
-
 
 
 function* getTournamentSaga(){
