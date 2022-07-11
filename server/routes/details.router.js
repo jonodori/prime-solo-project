@@ -41,10 +41,14 @@ router.get('/:id', (req, res) => {
           city
           countryCode
           startAt
+          endAt
           timezone
           isRegistrationOpen
           url(relative: false)
           rules
+          numAttendees
+          primaryContact
+          registrationClosesAt
         }
       }
     },
@@ -67,5 +71,10 @@ router.get('/:id', (req, res) => {
   })
   
   });
+
+
+  
+  
+
 
   module.exports = router;

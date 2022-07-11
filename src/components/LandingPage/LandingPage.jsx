@@ -69,7 +69,7 @@ function LandingPage() {
     <tr>
     <th>tournament id</th>
     <th>tournament name</th>
-    <th>tournament state</th>
+    <th>city</th>
     <th>tournament image</th>
    
     </tr>
@@ -85,7 +85,7 @@ function LandingPage() {
               
             
             </td>
-            <td>{tournament.addrState}</td>
+            <td>{tournament.city}</td>
             <td>
             
             <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
