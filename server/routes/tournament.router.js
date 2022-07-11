@@ -27,7 +27,7 @@ router.get('/:state', (req, res) => {
           perPage: 20
           filter: {
             addrState: "${state}"
-            upcoming: true
+            past: false
           }
         }) {
           nodes {
@@ -90,7 +90,7 @@ router.post('/', (req, res) => {
   });
 
 
-  router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     
     const sqlQuery = `
     SELECT * FROM "registrations" 
@@ -114,6 +114,31 @@ router.post('/', (req, res) => {
           res.sendStatus(500)
         })
   })
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const sqlQuery =`
+  DELETE FROM "registrations"
+  WHERE id = $1 AND user_id = $2
+  RETURNING *;
+  `;
+
+  const sqlParams = [
+    req.params.id, 
+    req.user.id
+  ]
+
+  pool.query(sqlQuery, sqlParams).then ((dbRes) => {
+    if (dbRes.rows.length === 0 ){
+      res.sendStatus(404)
+    } else {
+    res.sendStatus(200)
+      }
+    })
+    .catch((err) => {
+      console.log('Error in DELETE', err)
+      res.sendStatus(500)
+    })
+  });
 
   module.exports = router;
 

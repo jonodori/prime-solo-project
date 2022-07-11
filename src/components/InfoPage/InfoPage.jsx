@@ -46,6 +46,9 @@ function InfoPage() {
           <td>{users.organizer_contact}</td>
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
+          <button className="btn btn_sizeSm" onClick>
+        Delete
+        </button>
         </tr>
         ))}
     </tbody>  
@@ -53,5 +56,7 @@ function InfoPage() {
     </>  
   );
 }
+
+
 
 export default InfoPage;
