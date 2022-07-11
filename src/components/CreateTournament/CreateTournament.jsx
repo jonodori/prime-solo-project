@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 
+
+//made just in case I need to create a Tournament
 function CreateTournament(){
     const dispatch = useDispatch();
 
