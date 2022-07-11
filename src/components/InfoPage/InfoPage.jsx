@@ -18,11 +18,39 @@ function InfoPage() {
     })
   }, [])
 
+  const user = useSelector(store=> store.userdetails);
+  
   return (
+    <>
     <div className="container">
-      <p>Info Page</p>
-      <h2></h2>
+      <h2>Tournaments Joined</h2>
+      
     </div>
+    <table>
+    <thead>
+        <tr>
+        
+        <th>Tournament Name</th>
+        <th>Address</th>
+        <th>Organizer Contact</th>
+        
+        <th>Gamertag</th>
+        <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+      {user && user.map(users => (
+        <tr key = {user.id}>
+          <td>{users.tournament_name}</td>
+          <td>{users.address}</td>
+          <td>{users.organizer_contact}</td>
+          <td>{users.gamertag}</td>
+          <td><img src={user.image_url} /></td>
+        </tr>
+        ))}
+    </tbody>  
+    </table>
+    </>  
   );
 }
 

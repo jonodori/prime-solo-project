@@ -55,6 +55,7 @@ function LandingPage() {
 
   return (
     <>
+    <h2>LocalE-sports</h2>
     <form onSubmit={fetchTournaments}>
 
       <br></br>
@@ -69,7 +70,7 @@ function LandingPage() {
       </form>
 
       
-      <h2>Local Tournaments</h2>
+      <h3>Local Tournaments</h3>
       
     
 <table>

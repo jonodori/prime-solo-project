@@ -106,7 +106,7 @@ router.post('/', (req, res) => {
 
       pool.query(sqlQuery, sqlParams)
         .then(result => {
-          res.send(result.rows[0])
+          res.send(result.rows)
           console.log('in SQLPARAMS');
         })
         .catch(err => {

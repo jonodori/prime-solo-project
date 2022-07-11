@@ -18,10 +18,10 @@ function* fetchUserDetails(action) {
    }
 
 
-function* getUserDetails(){
+function* userdetails(){
     
     yield takeLatest('FETCH_USER_DETAILS', fetchUserDetails)
     
 }
 
-export default getUserDetails;
+export default userdetails;
