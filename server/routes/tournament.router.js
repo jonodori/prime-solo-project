@@ -39,6 +39,8 @@ router.get('/:state', (req, res) => {
               url
             }
             city
+            startAt
+            endAt
           }
         }
       },
@@ -86,6 +88,32 @@ router.post('/', (req, res) => {
       })
   
   });
+
+
+  router.get('/', rejectUnauthenticated, (req, res) => {
+    
+    const sqlQuery = `
+    SELECT * FROM "registrations" 
+    JOIN tournaments 
+    ON registrations.tournament_id = tournaments.id 
+    JOIN "user" 
+    ON "user".id = registrations.user_id  
+    WHERE "user".id = $1
+    ;`;
+
+    const sqlParams = [req.user.id]
+    console.log('In router.get', sqlParams);
+
+      pool.query(sqlQuery, sqlParams)
+        .then(result => {
+          res.send(result.rows[0])
+          console.log('in SQLPARAMS');
+        })
+        .catch(err => {
+          console.error(err);
+          res.sendStatus(500)
+        })
+  })
 
   module.exports = router;
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect  } from 'react';
 import { useHistory } from 'react-router-dom';
+import ThankYouJoin from '../ThankyouJoin/ThankyouJoin';
 
 function Details(){
     const dispatch = useDispatch();
@@ -38,12 +39,15 @@ function Details(){
 //           ":"+date.getMinutes()+
 //           ":"+date.getSeconds());
 
+
+
     const joinTournament = () => {
       console.log('in Details', tournament);
       dispatch({
         type: 'SET_JOIN_TOURNAMENT',
         payload: tournament
       })
+      history.push(`/thankyou/`)
     }
 
     return(
@@ -65,7 +69,18 @@ function Details(){
         
 
         {(user.id)?
-        <button className="btn btn_sizeSm" onClick={joinTournament}>
+        
+        <button className="btn btn_sizeSm" onClick={
+          () => {
+            let txt = "";
+
+            if (confirm("Are you sure you want to join this tournament?")) {
+              return txt = "You've joined the tournament!";
+            } else {
+              return txt = "You canceled!";
+            }
+          }
+        }>  
         Join Tournament
         </button> 
         :

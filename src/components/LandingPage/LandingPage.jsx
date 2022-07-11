@@ -44,6 +44,14 @@ function LandingPage() {
     
     history.push('/details/:id')
   }
+  
+  // const startAtTimestamp = new Date(tournament.startAt)
+  //           const startAt = (+startAtTimestamp.getDate()+
+  //           "/"+(startAtTimestamp.getMonth()+1)+
+  //           "/"+startAtTimestamp.getFullYear()+
+  //           " "+startAtTimestamp.getHours()+
+  //           ":"+startAtTimestamp.getMinutes()+
+  //           ":"+startAtTimestamp.getSeconds());
 
   return (
     <>
@@ -67,30 +75,27 @@ function LandingPage() {
 <table>
 <thead>
     <tr>
-    <th>tournament id</th>
+    
     <th>tournament name</th>
     <th>city</th>
     <th>tournament image</th>
-   
+    <th>start date</th>
     </tr>
 </thead>
 <tbody>
     {tournaments && tournaments.map(tournament => (
         <tr key = {tournament.id}>
-            <td>{tournament.id}</td>
+            
+            
             {/* <Link to = {`/details/${tournament.id}`}> */}
             <td> 
-              
               <Link to = {`/details/${tournament.id}`} >{tournament.name}</Link>
-              
-            
             </td>
             <td>{tournament.city}</td>
             <td>
-            
             <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
-          
             </td>
+            <td>{tournament.startAt} </td>
 
         </tr>
     ))}
