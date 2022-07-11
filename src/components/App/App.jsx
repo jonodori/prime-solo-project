@@ -26,7 +26,7 @@ import TournamentList from '../TournamentList/TournamentList';
 import CreateTournament from '../CreateTournament/CreateTournament';
 import OrganizersList from '../OrganizersList/OrganizersList';
 import OrganizersEdit from '../OrganizersEdit/OrganizersEdit';
-
+import ThankyouJoin from  '../ThankyouJoin/ThankyouJoin';
 import './App.css';
 
 function App() {
@@ -120,6 +120,10 @@ function App() {
           <Route exact path="/details/:id">
             <Details />
           </Route>
+
+          <ProtectedRoute exact path="/thankyou/:id">
+            <ThankyouJoin />    
+          </ProtectedRoute>
 
           <Route exact path="/join">
             <JoinTournament />

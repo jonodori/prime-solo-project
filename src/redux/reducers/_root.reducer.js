@@ -4,7 +4,7 @@ import user from './user.reducer';
 import tournamentInfo from './tournamentInfo.reducer';
 import tournamentList from './tournamentList.reducer';
 import details from './details.reducer';
-
+import userdetails from './userdetails.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,7 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   tournamentInfo,
   tournamentList,
-  details
+  details,
+  userdetails
 });
 
 export default rootReducer;
