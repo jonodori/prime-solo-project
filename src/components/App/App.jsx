@@ -21,10 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import Details from '../Details/Details';
-import JoinTournament from '../JoinTournament/JoinTournament';
 import CreateTournament from '../CreateTournament/CreateTournament';
-import OrganizersList from '../OrganizersList/OrganizersList';
-import OrganizersEdit from '../OrganizersEdit/OrganizersEdit';
+
 import ThankyouJoin from  '../ThankyouJoin/ThankyouJoin';
 import './App.css';
 
@@ -124,22 +122,16 @@ function App() {
             <ThankyouJoin />    
           </ProtectedRoute>
 
-          <Route exact path="/join">
-            <JoinTournament />
-          </Route>
+          
 
 
           <Route exact path="/create">
             <CreateTournament />
           </Route>
 
-          <ProtectedRoute exact path="/created">
-            <OrganizersList />
-          </ProtectedRoute>
+          
 
-          <ProtectedRoute exact path="/edit">
-            <OrganizersEdit />
-          </ProtectedRoute>
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
