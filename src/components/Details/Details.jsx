@@ -47,7 +47,7 @@ function Details(){
         type: 'SET_JOIN_TOURNAMENT',
         payload: tournament
       })
-      history.push(`/thankyou/`)
+      history.push(`/info`)
     }
 
     return(
@@ -75,6 +75,7 @@ function Details(){
             let txt = "";
 
             if (confirm("Are you sure you want to join this tournament?")) {
+              joinTournament();
               return txt = "You've joined the tournament!";
             } else {
               return txt = "You canceled!";
