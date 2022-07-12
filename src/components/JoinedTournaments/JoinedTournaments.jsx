@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 
 
 
-function InfoPage() {
+function JoinedTournaments() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -71,4 +71,4 @@ function InfoPage() {
 
 
 
-export default InfoPage;
+export default JoinedTournaments;
