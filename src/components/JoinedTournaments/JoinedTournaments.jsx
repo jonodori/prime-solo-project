@@ -18,7 +18,8 @@ function JoinedTournaments() {
     })
   }, [])
 
-  const user = useSelector(store=> store.userdetails);
+  const user = useSelector(store=> store.userDetails);
+  console.log('in Joined Tournaments', user);
 
   const handleDelete = (id, tournament_id) => {
     console.log('this is handledelete', id, tournament_id);

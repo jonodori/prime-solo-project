@@ -15,14 +15,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
-  console.log(req.body);
-
+  
   const sqlQuery = `
     SELECT * 
     FROM "user"
     WHERE "id" = $1;
   `;
-  console.log('in sqlParams user router', req.params.id);
+  console.log('in sqlParams user router', req.params);
   const sqlParams = [
     req.params.id
   ]
