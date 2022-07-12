@@ -19,6 +19,17 @@ function InfoPage() {
   }, [])
 
   const user = useSelector(store=> store.userdetails);
+
+  const handleDelete = (id, tournament_id) => {
+    console.log('this is handledelete', id, tournament_id);
+    dispatch({
+      type: 'DELETE_JOIN_TOURNAMENT',
+      payload: {
+            id,
+            tournament_id 
+      }
+  })
+}
   
   return (
     <>
@@ -46,9 +57,10 @@ function InfoPage() {
           <td>{users.organizer_contact}</td>
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
-          <button className="btn btn_sizeSm" onClick>
+          <td><button className="btn btn_sizeSm" onClick={() => {handleDelete(users.registration_id, users.tournament_id)}}>
         Delete
         </button>
+        </td>
         </tr>
         ))}
     </tbody>  

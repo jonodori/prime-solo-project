@@ -93,11 +93,27 @@ router.post('/', (req, res) => {
 router.get('/', rejectUnauthenticated, (req, res) => {
     
     const sqlQuery = `
-    SELECT * FROM "registrations" 
-    JOIN tournaments 
-    ON registrations.tournament_id = tournaments.id 
+    SELECT 
+    "user".id,
+    "user".username,
+    "user".gamertag,
+    "user".email,
+    "registrations".id as registration_id,
+    "registrations".tournament_id,
+    "tournaments".tournament_name,
+    "tournaments".address,
+    "tournaments".start_time,
+    "tournaments".end_time,
+    "tournaments".timezone,
+    "tournaments".image_url,
+    "tournaments".rules,
+    "tournaments".organizer_contact,
+    "tournaments".startgg_id
+    FROM "tournaments"
+    JOIN "registrations"
+    ON "registrations".tournament_id = "tournaments".id
     JOIN "user" 
-    ON "user".id = registrations.user_id  
+    ON "user".id = "registrations".user_id
     WHERE "user".id = $1
     ;`;
 
@@ -116,16 +132,18 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('made it into tournament router.delete', req.params,req.body)
   const sqlQuery =`
   DELETE FROM "registrations"
-  WHERE id = $1 AND user_id = $2
+  WHERE id = $1
   RETURNING *;
   `;
 
   const sqlParams = [
     req.params.id, 
-    req.user.id
+    
   ]
+  console.log('In delete sqlParams', sqlParams);
 
   pool.query(sqlQuery, sqlParams).then ((dbRes) => {
     if (dbRes.rows.length === 0 ){

@@ -22,7 +22,6 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import Details from '../Details/Details';
 import JoinTournament from '../JoinTournament/JoinTournament';
-import TournamentList from '../TournamentList/TournamentList';
 import CreateTournament from '../CreateTournament/CreateTournament';
 import OrganizersList from '../OrganizersList/OrganizersList';
 import OrganizersEdit from '../OrganizersEdit/OrganizersEdit';
@@ -129,9 +128,6 @@ function App() {
             <JoinTournament />
           </Route>
 
-          <Route exact path="/tournamentlist">
-            <TournamentList />
-          </Route>
 
           <Route exact path="/create">
             <CreateTournament />

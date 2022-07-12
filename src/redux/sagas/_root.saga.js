@@ -7,6 +7,7 @@ import getTournamentSaga from './gettournament.saga';
 import getDetails from './details.saga';
 import joinTournament from './jointournament.saga';
 import userdetails from './userdetails.saga';
+import deleteJoin from './deletejoin.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -24,6 +25,7 @@ export default function* rootSaga() {
     getTournamentSaga(),
     getDetails(),
     joinTournament(),
-    userdetails()
+    userdetails(),
+    deleteJoin(),
   ]);
 }
