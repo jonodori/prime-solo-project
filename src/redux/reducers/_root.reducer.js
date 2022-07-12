@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   tournamentInfo,
   tournamentList,
   details,
-  userdetails
+  userdetails,
 });
 
 export default rootReducer;
