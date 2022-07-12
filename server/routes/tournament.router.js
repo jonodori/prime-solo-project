@@ -132,6 +132,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('made it into tournament router.delete', req.params,req.body)
   const sqlQuery =`
   DELETE FROM "registrations"
   WHERE id = $1 AND tournament_id = $2
