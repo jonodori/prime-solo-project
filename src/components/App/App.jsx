@@ -22,7 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import Details from '../Details/Details';
 import CreateTournament from '../CreateTournament/CreateTournament';
-
+import EditProfile from '../EditProfile/EditProfile';
 import ThankyouJoin from  '../ThankyouJoin/ThankyouJoin';
 import './App.css';
 
@@ -122,7 +122,9 @@ function App() {
             <ThankyouJoin />    
           </ProtectedRoute>
 
-          
+          <ProtectedRoute exact path="/edit">
+            <EditProfile />    
+          </ProtectedRoute>
 
 
           <Route exact path="/create">

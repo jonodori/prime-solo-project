@@ -9,10 +9,9 @@ function* setDelete (action){
     yield put ({
         type:'FETCH_USER_DETAILS',
     })
-    }catch{
-        
+    }catch (error) {
+        console.log('Error in deletejoin saga:', error);
     }
-    
 }
 
 function* deleteJoin(){

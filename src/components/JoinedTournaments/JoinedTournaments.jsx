@@ -30,9 +30,12 @@ function JoinedTournaments() {
       }
   })
 }
+
+
   
   return (
     <>
+    
     <div className="container">
       <h2>Tournaments Joined</h2>
       
@@ -58,7 +61,7 @@ function JoinedTournaments() {
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
           <td><button className="btn btn_sizeSm" onClick={() => {handleDelete(users.registration_id, users.tournament_id)}}>
-        Delete
+        Cancel
         </button>
         </td>
         </tr>

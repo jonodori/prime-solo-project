@@ -32,6 +32,10 @@ function Nav() {
               Joined Tournaments
             </Link>
 
+            <Link className="navLink" to="/edit">
+              Edit Profile
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

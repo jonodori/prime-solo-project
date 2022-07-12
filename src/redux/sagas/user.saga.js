@@ -24,8 +24,30 @@ function* fetchUser() {
   }
 }
 
+function* fetchGamertag(action) {
+  try{
+    yield axios.get(`/api/user/${action.payload.id}`);
+    yield put({
+      type: 'SET_GAMERTAG',
+      payload: res.data
+    })
+  }catch (error) {
+    console.log('Error in user saga, gamertag', error);
+  }
+}
+
+function* saveGamertag(action){
+  yield axios.put(`/api/user/${action.payload.id}`, action.payload);
+
+  yield put ({
+       type: 'FETCH_GAMERTAG'
+  })
+ };
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('FETCH_GAMERTAG', fetchGamertag);
+  yield takeLatest('SAVE_GAMERTAG', saveGamertag);
 }
 
 export default userSaga;

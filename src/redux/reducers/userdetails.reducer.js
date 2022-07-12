@@ -1,4 +1,4 @@
-const userdetails = (state = [], action) => {
+const userDetails = (state = [], action) => {
     switch (action.type) {
       case 'SET_USER_DETAILS':
         return action.payload;
@@ -9,4 +9,4 @@ const userdetails = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default userdetails;
+  export default userDetails;

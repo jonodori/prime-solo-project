@@ -14,6 +14,33 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  console.log(req.body);
+
+  const sqlQuery = `
+    SELECT * 
+    FROM "user"
+    WHERE "id" = $1;
+  `;
+  console.log('in sqlParams user router', req.params.id);
+  const sqlParams = [
+    req.params.id
+  ]
+  
+  pool.query(sqlQuery , sqlParams)
+    .then((dbRes) => {
+      if (dbRes.rows.length === 0){
+        res.sendStatus(404)
+      } else{
+        res.send(dbRes.rows[0])
+      }
+    })
+    .catch((err) => {
+      console.log('err in user gamertag', err)
+      res.sendStatus(500)
+    })
+})
+  
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
