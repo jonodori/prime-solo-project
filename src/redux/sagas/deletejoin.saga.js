@@ -6,10 +6,13 @@ function* setDelete (action){
     try{
     yield axios.delete(`/api/tournament/${action.payload.id}`)
     // doesn't need a reducer
+    yield put ({
+        type:'FETCH_USER_DETAILS',
+    })
+    }catch{
+        
     }
-    catch{
-
-    }
+    
 }
 
 function* deleteJoin(){
