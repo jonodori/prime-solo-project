@@ -25,6 +25,7 @@ function* fetchUser() {
 }
 
 function* fetchGamertag(action) {
+  console.log('in fetchGamertag', action.payload)
   try{
     yield axios.get(`/api/user/${action.payload.id}`);
     yield put({
@@ -39,10 +40,11 @@ function* fetchGamertag(action) {
 function* saveGamertag(action){
   console.log('In saveGamertag',action.payload);
   yield axios.put(`/api/user/${action.payload.id}/edit`, action.payload);
+  console.log('???', action.payload.id);
 
-  yield put ({
-       type: 'FETCH_GAMERTAG'
-  })
+  // yield put ({
+  //      type: 'FETCH_GAMERTAG'
+  // })
  };
 
 function* userSaga() {
