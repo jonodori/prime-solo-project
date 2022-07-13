@@ -39,6 +39,27 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 })
+
+router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
+  
+    const sqlQuery = `
+    UPDATE user
+    SET gamertag = $2
+    WHERE id = $1;
+    `
+    const sqlParams = [
+      req.body.gamertag,
+      req.params.id
+      
+    ]
+    pool.query(sqlQuery, sqlParams)
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Error in PUT', err);
+      res.sendStatus(500);
+    })
+});
+
   
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen

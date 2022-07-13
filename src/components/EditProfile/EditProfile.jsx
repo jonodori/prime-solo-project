@@ -13,7 +13,7 @@ function EditProfile(){
     const params = useParams(); // {id : 2}
     const dispatch = useDispatch();
 
-    const [gamertag, setGamertag] = useState(user.gamertag);    
+    const [gamertag, setGamertag] = useState('');    
     
     
     const handleSubmit = (evt) => {
@@ -22,7 +22,7 @@ function EditProfile(){
         dispatch({
             type: 'SAVE_GAMERTAG',
             payload: {
-                newgamertag: gamertag,
+                gamertag: gamertag,
                 id: user.id
             }
         })
@@ -33,7 +33,7 @@ function EditProfile(){
    
 
     <div>
-        gamertag: {gamertag}
+        gamertag: {user.gamertag}
     </div>
     
     <h4></h4>

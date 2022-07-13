@@ -37,7 +37,8 @@ function* fetchGamertag(action) {
 }
 
 function* saveGamertag(action){
-  yield axios.put(`/api/user/${action.payload.id}`, action.payload);
+  console.log('In saveGamertag',action.payload);
+  yield axios.put(`/api/user/${action.payload.id}/edit`, action.payload);
 
   yield put ({
        type: 'FETCH_GAMERTAG'
