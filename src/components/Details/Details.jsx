@@ -47,7 +47,7 @@ function Details(){
         type: 'SET_JOIN_TOURNAMENT',
         payload: tournament
       })
-      history.push(`/info`)
+      history.push(`/join`)
     }
 
     return(

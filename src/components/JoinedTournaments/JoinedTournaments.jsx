@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 
 
 
-function InfoPage() {
+function JoinedTournaments() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +18,8 @@ function InfoPage() {
     })
   }, [])
 
-  const user = useSelector(store=> store.userdetails);
+  const user = useSelector(store=> store.userDetails);
+  console.log('in Joined Tournaments', user);
 
   const handleDelete = (id, tournament_id) => {
     console.log('this is handledelete', id, tournament_id);
@@ -30,9 +31,12 @@ function InfoPage() {
       }
   })
 }
+
+
   
   return (
     <>
+    
     <div className="container">
       <h2>Tournaments Joined</h2>
       
@@ -58,7 +62,7 @@ function InfoPage() {
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
           <td><button className="btn btn_sizeSm" onClick={() => {handleDelete(users.registration_id, users.tournament_id)}}>
-        Delete
+        Cancel
         </button>
         </td>
         </tr>
@@ -71,4 +75,4 @@ function InfoPage() {
 
 
 
-export default InfoPage;
+export default JoinedTournaments;

@@ -31,7 +31,8 @@ function LandingPage() {
   };
 
 
-  const fetchTournaments = () => {
+  const fetchTournaments = (evt) => {
+    evt.preventDefault();
     dispatch({
       type: 'FETCH_TOURNAMENTS',
       payload: 

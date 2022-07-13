@@ -15,16 +15,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import JoinedTournaments from '../JoinedTournaments/JoinedTournaments';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import Details from '../Details/Details';
-import JoinTournament from '../JoinTournament/JoinTournament';
 import CreateTournament from '../CreateTournament/CreateTournament';
-import OrganizersList from '../OrganizersList/OrganizersList';
-import OrganizersEdit from '../OrganizersEdit/OrganizersEdit';
+import EditProfile from '../EditProfile/EditProfile';
 import ThankyouJoin from  '../ThankyouJoin/ThankyouJoin';
 import './App.css';
 
@@ -67,11 +65,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows joined tournament else shows LoginPage
             exact
-            path="/info"
+            path="/join"
           >
-            <InfoPage />
+            <JoinedTournaments />
           </ProtectedRoute>
 
           <Route
@@ -124,22 +122,18 @@ function App() {
             <ThankyouJoin />    
           </ProtectedRoute>
 
-          <Route exact path="/join">
-            <JoinTournament />
-          </Route>
+          <ProtectedRoute exact path="/edit">
+            <EditProfile />    
+          </ProtectedRoute>
 
 
           <Route exact path="/create">
             <CreateTournament />
           </Route>
 
-          <ProtectedRoute exact path="/created">
-            <OrganizersList />
-          </ProtectedRoute>
+          
 
-          <ProtectedRoute exact path="/edit">
-            <OrganizersEdit />
-          </ProtectedRoute>
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
