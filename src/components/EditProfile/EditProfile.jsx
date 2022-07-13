@@ -15,6 +15,15 @@ function EditProfile(){
 
     const [gamertag, setGamertag] = useState('');    
     
+    //Doesn't need a useEffect
+    // useEffect(() => {
+    //     dispatch({
+    //         type: 'FETCH_GAMERTAG',
+    //         payload: params.id
+    //     })
+
+    // }, [params.id])
+
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -26,6 +35,8 @@ function EditProfile(){
                 id: user.id
             }
         })
+        // clears input
+        setGamertag('')
     }
     
     return(

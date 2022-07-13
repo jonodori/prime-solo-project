@@ -27,24 +27,31 @@ function* fetchUser() {
 function* fetchGamertag(action) {
   console.log('in fetchGamertag', action.payload)
   try{
-    yield axios.get(`/api/user/${action.payload.id}`);
+    let res = yield axios.get(`/api/user/${action.payload.id}`);
     yield put({
       type: 'SET_GAMERTAG',
-      payload: res.data
+      payload: res.data.gamertag 
     })
   }catch (error) {
     console.log('Error in user saga, gamertag', error);
   }
 }
 
+
 function* saveGamertag(action){
   console.log('In saveGamertag',action.payload);
-  yield axios.put(`/api/user/${action.payload.id}/edit`, action.payload);
-  console.log('???', action.payload.id);
+  try {
+  yield axios.put(`/api/user/${action.payload.id}/edit`, {gamertag: action.payload.gamertag});
+  console.log('???', action.payload);
 
-  // yield put ({
-  //      type: 'FETCH_GAMERTAG'
-  // })
+  yield put ({
+      //  FETCH USER fetches the user data 
+       type: 'FETCH_USER',
+       payload: { id: action.payload.id} }
+  )
+  } catch (err) {
+    console.log('inSaveGamertag', err)
+  }
  };
 
 function* userSaga() {

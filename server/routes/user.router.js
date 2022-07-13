@@ -14,9 +14,35 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('router get made it here')
+  const sqlQuery = `
+    SELECT * 
+    FROM "user"
+    WHERE "id" = $1;
+  `;
+  console.log('in sqlParams user router', req.params);
+  const sqlParams = [
+    req.params.id
+  ]
+  
+  pool.query(sqlQuery , sqlParams)
+    .then((dbRes) => {
+      console.log('In dbRes', dbRes)
+      if (dbRes.rows.length === 0){
+        res.sendStatus(404)
+      } else{
+        res.send(dbRes.rows[0])
+      }
+    })
+    .catch((err) => {
+      console.log('err in user gamertag', err)
+      res.sendStatus(500)
+    })
+})
 
 router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
-    console.log(req.param.id);  
+    console.log('<---' , req.body);  
     const sqlQuery = `
     UPDATE "user"
     SET gamertag = $1
@@ -24,7 +50,7 @@ router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
     `
     const sqlParams = [
       req.body.gamertag,
-      req.params.id
+      req.user.id
       
     ]
     pool.query(sqlQuery, sqlParams)
