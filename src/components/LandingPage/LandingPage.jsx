@@ -16,11 +16,12 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 
 
 function LandingPage() {
-  const moment = require('moment-timezone');
-
   const tournaments = useSelector(store => store.tournamentList);
 
   const history = useHistory();
+  
+  //shows date and time for moment
+  const moment = require('moment-timezone');
 
   
   const [state, setState] = useState('');
