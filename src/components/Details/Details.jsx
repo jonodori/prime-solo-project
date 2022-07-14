@@ -46,7 +46,7 @@ let timestamp = 1673024400
 //           ":"+date.getMinutes()+
 //           ":"+date.getSeconds());
 
-let momentTimestamp = moment.unix(tournament.registrationClosesAt).format("DD MMM YYYY hh:mm a")
+// let momentTimestamp = moment.unix(tournament.registrationClosesAt).format("DD MMM YYYY hh:mm a");
 
 
     const joinTournament = () => {
