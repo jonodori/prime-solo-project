@@ -86,7 +86,7 @@ function Details(){
         </button> 
         :
         <button className="btn btn_sizeSm" onClick={onLogin}>
-        Login
+        Login to join tournament
         </button>
 
       }
