@@ -61,7 +61,28 @@ function JoinedTournaments() {
           <td>{users.organizer_contact}</td>
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
-          <td><button className="btn btn_sizeSm" onClick={() => {handleDelete(users.registration_id, users.tournament_id)}}>
+          <td><button className="btn btn_sizeSm" onClick={() => 
+            {
+              swal({
+                title: "Are you want to cancel Joined Tournament?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  swal("You have cancelled from the tournament", {
+                    icon: "success",
+                    function: handleDelete(users.registration_id, users.tournament_id)
+                  });
+                } else {
+                  swal("You are still in the tournament!");
+                }
+              });
+            
+          }
+            }>
         Cancel
         </button>
         </td>

@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect  } from 'react';
 import { useHistory } from 'react-router-dom';
 import ThankYouJoin from '../ThankyouJoin/ThankyouJoin';
+import swal from 'sweetalert';
+
 
 function Details(){
     const dispatch = useDispatch();
@@ -72,21 +74,29 @@ function Details(){
         
         <button className="btn btn_sizeSm" onClick={
           () => {
-            let txt = "";
-
-            if (confirm("Are you sure you want to join this tournament?")) {
-              joinTournament();
-              return txt = "You've joined the tournament!";
-            } else {
-              return txt = "You canceled!";
-            }
+            swal({
+              title: "Are you sure you want to join this tournament?",
+              icon: "warning",
+              buttons: true,
+              buttons: true,
+            })
+            .then((willJoin) => {
+              if (willJoin) {
+                joinTournament();
+                swal("Tournament Joined!", {
+                  icon: "success",
+                });
+              } else {
+                swal("Cancelled");
+              }
+            });
           }
         }>  
         Join Tournament
         </button> 
         :
         <button className="btn btn_sizeSm" onClick={onLogin}>
-        Login to join tournament
+        Login to Join Tournament
         </button>
 
       }
