@@ -71,6 +71,7 @@ let timestamp = 1673024400
         <h4>End At: {tournament && moment.unix(tournament.endAt).format(" MMM DD YYYY hh:mm a")}</h4>
         <h4>Timezone: {tournament && tournament.timezone}</h4>
         <h4>Registration closes at: {tournament && moment.unix(tournament.registrationClosesAt).format("MMM DD YYYY hh:mm a")}</h4>
+        <h4>Attendees: {tournament && tournament.numAttendees}</h4>
         <h4>Rules:</h4><p> {tournament && tournament.rules}</p>
         <h5><a href={tournament && tournament.url }>{tournament && tournament.url }</a> </h5>
         

@@ -80,7 +80,21 @@ Grid
 }
 
 .image{
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
   object-fit: cover
 }
+
+.title{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+
+  font-size: 40px;
+}
+
+.tournament-name{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+

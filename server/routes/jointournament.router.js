@@ -58,22 +58,6 @@ router.post('/', (req, res) => {
 
             returning id
             `
-            // const startAtTimestamp = new Date(req.body.startAt)
-            // const startAt = (+startAtTimestamp.getDate()+
-            // "/"+(startAtTimestamp.getMonth()+1)+
-            // "/"+startAtTimestamp.getFullYear()+
-            // " "+startAtTimestamp.getHours()+
-            // ":"+startAtTimestamp.getMinutes()+
-            // ":"+startAtTimestamp.getSeconds());
-           
-            // const endAtTimestamp = new Date(req.body.endAt)
-            // const endAt = (+endAtTimestamp.getDate()+
-            // "/"+(endAtTimestamp.getMonth()+1)+
-            // "/"+endAtTimestamp.getFullYear()+
-            // " "+endAtTimestamp.getHours()+
-            // ":"+endAtTimestamp.getMinutes()+
-            // ":"+endAtTimestamp.getSeconds());
-
 
 
             const sqlParamsTournament=[
@@ -119,24 +103,6 @@ router.post('/', (req, res) => {
         console.log('error in joinTournament', err)
         res.sendStatus(500);
     })
-   
-    // const sqlQuery=`
-    // INSERT INTO "tournaments" (
-    //     )
-    // VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
-    // `;
-   
-    // const sqlParams=[
-    //     ];
-  
-    // pool.query(sqlQuery, sqlParams)
-    //   .then(() => {
-    //     console.log('made it to the POST', sqlParams)
-    //     res.sendStatus(201)
-    //   }).catch((error) => {
-    //     console.log('Error in post', error);
-    //     res.sendStatus(500);
-    //   })
   
   });
 
