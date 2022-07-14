@@ -5,11 +5,15 @@ import { useEffect  } from 'react';
 import { useHistory } from 'react-router-dom';
 import ThankYouJoin from '../ThankyouJoin/ThankyouJoin';
 import swal from 'sweetalert';
+import moment from 'react-moment';
+
 
 
 function Details(){
     const dispatch = useDispatch();
     const history = useHistory();
+    const moment = require('moment-timezone');
+
 
     const params = useParams();
     console.log('params', params.id)
@@ -31,7 +35,8 @@ function Details(){
     history.push('/login');
   };
 
- // let timestamp = 1607110465663
+// test for converting unix timestamp to date and time 
+let timestamp = 1673024400
 // let date = new Date(timestamp);
 
 // console.log(+date.getDate()+
@@ -41,6 +46,7 @@ function Details(){
 //           ":"+date.getMinutes()+
 //           ":"+date.getSeconds());
 
+// let momentTimestamp = moment.unix(tournament.registrationClosesAt).format("DD MMM YYYY hh:mm a");
 
 
     const joinTournament = () => {
@@ -61,13 +67,12 @@ function Details(){
         <h4>{tournament && tournament.venueName}</h4>
         {/* <h4>{tournament && tournament.city}</h4> */}
         {/* <h4>{tournament && tournament.countryCode}</h4> */}
-        <h4>Start At: {tournament && tournament.startAt}</h4>
-        <h4>End At: {tournament && tournament.endAt}</h4>
+        <h4>Start At: {tournament && moment.unix(tournament.startAt).format("MMM DD YYYY hh:mm a")}</h4>
+        <h4>End At: {tournament && moment.unix(tournament.endAt).format(" MMM DD YYYY hh:mm a")}</h4>
         <h4>Timezone: {tournament && tournament.timezone}</h4>
-        <h4>{tournament && tournament.isRegistrationOpen}</h4>
-        <h4>{tournament && tournament.registrationClosesAt}</h4>
+        <h4>Registration closes at: {tournament && moment.unix(tournament.registrationClosesAt).format("MMM DD YYYY hh:mm a")}</h4>
         <h4>Rules:</h4><p> {tournament && tournament.rules}</p>
-        <h4>{tournament && tournament.url }</h4>
+        <h5><a href={tournament && tournament.url }>{tournament && tournament.url }</a> </h5>
         
 
         {(user.id)?

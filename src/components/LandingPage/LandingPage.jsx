@@ -5,6 +5,8 @@ import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Details from '../Details/Details';
+import moment from 'react-moment';
+
 
 
 
@@ -14,10 +16,12 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 
 
 function LandingPage() {
-  
   const tournaments = useSelector(store => store.tournamentList);
 
   const history = useHistory();
+  
+  //shows date and time for moment
+  const moment = require('moment-timezone');
 
   
   const [state, setState] = useState('');
@@ -97,7 +101,8 @@ function LandingPage() {
             <td>
             <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
             </td>
-            <td>{tournament.startAt} </td>
+            
+            <td>{tournament && moment.unix(tournament.startAt).format("MMM DD YYYY hh:mm a")} </td>
 
         </tr>
     ))}
