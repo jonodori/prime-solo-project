@@ -1,7 +1,7 @@
 html,
 body,
 #react-root {
-  
+
   height: 100%;
 }
 
@@ -10,9 +10,13 @@ body {
   margin: 0px;
 }
 
+div{
+
+}
+
 img {
-  display: inline-block;
-  max-width: 100%;
+  /* display: inline-block; */
+  /* max-width: 100%; */
 }
 
 /* --------------------------------------------------------------------------------
@@ -28,7 +32,6 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
-  display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
   border-width: 1px 1px 3px;
@@ -51,7 +54,6 @@ Button
 }
 
 .btn_sizeFull {
-  display: block;
   width: 100%;
 }
 

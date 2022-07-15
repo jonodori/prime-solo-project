@@ -17,6 +17,8 @@ import Typography from '@mui/material/Typography';
 
 
 
+
+
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
@@ -67,7 +69,7 @@ function LandingPage() {
 
   return (
     <>
-  
+    
     <div className="title">Local E-sports</div>
     <form onSubmit={fetchTournaments}>
 
@@ -89,8 +91,15 @@ function LandingPage() {
 
     {tournaments && tournaments.map(tournament => (
         <div key = {tournament.id}>
-            
-            <Link to = {`/details/${tournament.id}`}><Card sx={{ maxWidth: 345 }}>
+  
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="50vh"
+>
+      
+      <Link to = {`/details/${tournament.id}`}><Card sx={{ maxWidth: 345}}>
       <CardMedia
         component="img"
         height="140"
@@ -98,6 +107,7 @@ function LandingPage() {
         alt="green iguana"
         
       />
+      
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         {tournament.name}
@@ -116,6 +126,9 @@ function LandingPage() {
       </CardActions>
     </Card>
     </Link>
+   
+    </Box>
+   
             {/* <Link to = {`/details/${tournament.id}`}> */}
             
         </div>

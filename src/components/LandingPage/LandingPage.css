@@ -4,13 +4,10 @@ Grid
 
 .grid {
   display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+  align-content: center;
+  flex-direction: column;
 }
 
 .grid-col {
@@ -87,8 +84,8 @@ Grid
 
 .title{
   font-family: 'Edu VIC WA NT Beginner', cursive;
-
   font-size: 40px;
+  text-align: center;
 }
 
 .tournament-name{
