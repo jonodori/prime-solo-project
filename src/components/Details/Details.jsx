@@ -6,7 +6,13 @@ import { useHistory } from 'react-router-dom';
 import ThankYouJoin from '../ThankyouJoin/ThankyouJoin';
 import swal from 'sweetalert';
 import moment from 'react-moment';
-
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tab';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import './Details.css'
 
 
 function Details(){
@@ -36,7 +42,7 @@ function Details(){
   };
 
 // test for converting unix timestamp to date and time 
-let timestamp = 1673024400
+// let timestamp = 1673024400
 // let date = new Date(timestamp);
 
 // console.log(+date.getDate()+
@@ -58,11 +64,20 @@ let timestamp = 1673024400
       history.push(`/join`)
     }
 
+  const [value, setValue] = React.useState('one');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
     return(
         <>
+        
+      
+     
         <h3>{tournament && tournament.name}</h3>
         
-        <img className="imagee" src={tournament && tournament.images[0].url} /> 
+        <img className="images" src={tournament && tournament.images[0].url} /> 
         <h4>Address: {tournament && tournament.venueAddress}</h4>
         <h4>{tournament && tournament.venueName}</h4>
         {/* <h4>{tournament && tournament.city}</h4> */}
@@ -106,6 +121,7 @@ let timestamp = 1673024400
         </button>
 
       }
+       
         </>
     )
   }
