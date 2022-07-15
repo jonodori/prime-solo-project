@@ -99,7 +99,7 @@ function LandingPage() {
         minHeight="50vh"
 >
       
-      <Link to = {`/details/${tournament.id}`}><Card sx={{ maxWidth: 345}}>
+      <Link to = {`/details/${tournament.id}`}><Card sx={{ width: 600 }}>
       <CardMedia
         component="img"
         height="140"
