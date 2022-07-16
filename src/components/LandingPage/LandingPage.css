@@ -94,4 +94,7 @@ Grid
   font-family: 'Roboto', sans-serif;
 }
 
-
+.search{
+  margin-left: 50px;
+  margin-right: 50px;
+}

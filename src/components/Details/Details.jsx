@@ -72,10 +72,11 @@ function Details(){
 
     return(
         <>
+        <div className="details-container">
+
         
-      
-     
-        <h3>{tournament && tournament.name}</h3>
+        <div className="Body">
+        <h3 className="title1"> {tournament && tournament.name}</h3>
         
         <img className="images" src={tournament && tournament.images[0].url} /> 
         <h4>Address: {tournament && tournament.venueAddress}</h4>
@@ -121,7 +122,8 @@ function Details(){
         </button>
 
       }
-       
+       </div>
+       </div>
         </>
     )
   }

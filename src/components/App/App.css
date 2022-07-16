@@ -7,8 +7,12 @@ body,
 
 body {
   font-family: 'Roboto', sans-serif;;
-  margin: 0px;
+  background-color: #f8f8ff;
+  color: #343a40;
+  
 }
+
+
 
 div{
 

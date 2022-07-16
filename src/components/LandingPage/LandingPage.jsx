@@ -71,7 +71,7 @@ function LandingPage() {
     <>
     
     <div className="title">Local E-sports</div>
-    <form onSubmit={fetchTournaments}>
+    <form className="search" onSubmit={fetchTournaments}>
 
       <br></br>
       <TextField id="state-basic" label="State" variant="outlined" 
@@ -82,10 +82,11 @@ function LandingPage() {
         Find
       </Button>
       
+      <h3>Local Tournaments</h3>
       </form>
 
       
-      <h3>Local Tournaments</h3>
+      
       
     
 
@@ -132,6 +133,7 @@ function LandingPage() {
             {/* <Link to = {`/details/${tournament.id}`}> */}
             
         </div>
+        
     ))}
 
         

@@ -5,5 +5,15 @@
 }
 
 .body{
+    margin-left: 40%;
+}
+
+.details-container {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.title1{
     text-align: center;
+    font-weight: 400;
 }
