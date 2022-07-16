@@ -24,10 +24,10 @@ router.get('/:state', (req, res) => {
       "query": `
       query {
         tournaments(query: {
-          perPage: 20
+          perPage: 25
           filter: {
             addrState: "${state}"
-            past: false
+            upcoming: true
           }
         }) {
           nodes {
@@ -41,6 +41,7 @@ router.get('/:state', (req, res) => {
             city
             startAt
             endAt
+            numAttendees
           }
         }
       },

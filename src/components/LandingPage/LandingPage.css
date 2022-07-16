@@ -4,13 +4,10 @@ Grid
 
 .grid {
   display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+  align-content: center;
+  flex-direction: column;
 }
 
 .grid-col {
@@ -80,7 +77,24 @@ Grid
 }
 
 .image{
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
   object-fit: cover
+}
+
+.title{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-size: 40px;
+  text-align: center;
+}
+
+.tournament-name{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search{
+  margin-left: 50px;
+  margin-right: 50px;
 }

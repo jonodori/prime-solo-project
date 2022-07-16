@@ -6,6 +6,15 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Details from '../Details/Details';
 import moment from 'react-moment';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
 
 
 
@@ -60,54 +69,73 @@ function LandingPage() {
 
   return (
     <>
-    <h2>LocalE-sports</h2>
-    <form onSubmit={fetchTournaments}>
+    
+    <div className="title">Local E-sports</div>
+    <form className="search" onSubmit={fetchTournaments}>
 
       <br></br>
-   
-      <input type="text" id="state"
+      <TextField id="state-basic" label="State" variant="outlined" 
       value={state} 
-      placeholder="State" 
       onChange={(event) => setState(event.target.value.toUpperCase())}
       />
-        
-      <button type="Submit">Submit</button>
+      <Button variant="contained" color="secondary" type="Submit">
+        Find
+      </Button>
+      
+      <h3>Local Tournaments</h3>
       </form>
 
       
-      <h3>Local Tournaments</h3>
+      
       
     
-<table>
-<thead>
-    <tr>
-    
-    <th>tournament name</th>
-    <th>city</th>
-    <th>tournament image</th>
-    <th>start date</th>
-    </tr>
-</thead>
-<tbody>
-    {tournaments && tournaments.map(tournament => (
-        <tr key = {tournament.id}>
-            
-            
-            {/* <Link to = {`/details/${tournament.id}`}> */}
-            <td> 
-              <Link to = {`/details/${tournament.id}`} >{tournament.name}</Link>
-            </td>
-            <td>{tournament.city}</td>
-            <td>
-            <img className="image" src= {tournament.images[0] && tournament.images[0].url} />
-            </td>
-            
-            <td>{tournament && moment.unix(tournament.startAt).format("MMM DD YYYY hh:mm a")} </td>
 
-        </tr>
+    {tournaments && tournaments.map(tournament => (
+        <div key = {tournament.id}>
+  
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="50vh"
+>
+      
+      <Link to = {`/details/${tournament.id}`}><Card sx={{ width: 600 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={tournament.images[0] && tournament.images[0].url}
+        alt="green iguana"
+        
+      />
+      
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        {tournament.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {tournament && moment.unix(tournament.startAt).format("MMM DD YYYY hh:mm a")}
+        <br></br>
+        City: {tournament.city}
+        <br></br>
+        Attendees: {tournament && tournament.numAttendees}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        
+        {/* <Button  size="small">Click here to join and Learn More</Button> */}
+      </CardActions>
+    </Card>
+    </Link>
+   
+    </Box>
+   
+            {/* <Link to = {`/details/${tournament.id}`}> */}
+            
+        </div>
+        
     ))}
-</tbody>  
-</table>
+
         
 
     </>
