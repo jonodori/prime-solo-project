@@ -64,11 +64,14 @@ function Details(){
       history.push(`/join`)
     }
 
-  const [value, setValue] = React.useState('one');
+    const fetchMap = () => {
+      dispatch({
+        type: 'FETCH_MAP',
+      })
+    }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+
+  let url = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCy5qu-Xan8_Sf0dsjL6Txa3bpGAxdzNJk&q=${tournament && tournament.venueAddress}`
 
     return(
         <>
@@ -79,6 +82,20 @@ function Details(){
         <h3 className="title1"> {tournament && tournament.name}</h3>
         
         <img className="images" src={tournament && tournament.images[0].url} /> 
+
+        <iframe
+              src={url}
+      
+              width="600"
+              height="450"
+              frameBorder="0"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              aria-hidden="false"
+              tabIndex="0"
+            />
+
+
         <h4>Address: {tournament && tournament.venueAddress}</h4>
         <h4>{tournament && tournament.venueName}</h4>
         {/* <h4>{tournament && tournament.city}</h4> */}
