@@ -83,7 +83,7 @@ function LandingPage() {
         Find
       </Button>
       
-      <h3>Local Tournaments</h3>
+      <h3 className="local-tournaments">Local Tournaments</h3>
       </form>
 
       
@@ -98,10 +98,10 @@ function LandingPage() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minHeight="50vh"
+        minHeight="30vh"
 >
       
-      <Link to = {`/details/${tournament.id}`}><Card sx={{ width: 600 }}>
+      <Link to = {`/details/${tournament.id}`}><Card sx={{ width: 900 }}>
       <CardMedia
         component="img"
         height="140"

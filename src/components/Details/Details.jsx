@@ -82,8 +82,10 @@ function Details(){
         <h3 className="title1"> {tournament && tournament.name}</h3>
         
         <img className="images" src={tournament && tournament.images[0].url} /> 
-
+        
+        <br></br>
         <iframe
+              class="iframe"
               src={url}
       
               width="600"

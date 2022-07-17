@@ -1,5 +1,13 @@
 footer {
-  margin-top: 80px;
+ right: auto;
+    /* margin-top: 80px; */
+    /* padding: 20px; */
+    /* text-align: center; */
+    /* position: fixed; */
+    bottom: 10px;
+    /* display: flex; */
+    /* justify-content: center; */
+    left: 45%; margin-top: 80px;
   padding: 20px;
   text-align: center;
 }
