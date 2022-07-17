@@ -1,51 +1,85 @@
-import React from 'react';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
-import { useSelector } from 'react-redux';
 
-function Nav() {
-  const user = useSelector((store) => store.user);
+
+
+export default function TemporaryDrawer() {
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List className="NavBar">
+        {['Home', 'Joined', 'Edit Profile', 'About'].map((text, index) => (
+          
+          <ListItem key={text} disablePadding>
+            <Link className="tournament-link" to="/home" style={{ textDecoration: 'none' }}>
+            <ListItemButton >
+            
+              <ListItemIcon>
+              
+                {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
+               
+              </ListItemIcon>
+              
+              <ListItemText primary={text} />
+            </ListItemButton>
+            </Link>
+          </ListItem>
+          
+        )
+        )}
+      </List>
+      
+      
+    </Box>
+  );
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Shirt Friday</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
-
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/home">
-              Home
-            </Link>
-
-            <Link className="navLink" to="/join">
-              Joined Tournaments
-            </Link>
-
-            <Link className="navLink" to="/edit">
-              Edit Profile
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
-      </div>
+    <>
+    <div>
+      {['Main Menu'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
     </div>
+    </>
   );
 }
-
-export default Nav;

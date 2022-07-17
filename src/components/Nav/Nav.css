@@ -7,10 +7,11 @@ width: 100%;
   margin: 0 0 30px;
   background-color: #00acb0;
   overflow: hidden;
+  text-decoration: none;
 }
 
-.nav a {
-  text-decoration: none;
+.tournament-link{
+  color: #343a40
 }
 
 .nav-title {
