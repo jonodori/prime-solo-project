@@ -71,7 +71,7 @@ function Details(){
     }
 
 
-  let url = `https://www.google.com/maps/embed/v1/place?key=API_KEY&q=${tournament && tournament.venueAddress}`
+  let url = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCy5qu-Xan8_Sf0dsjL6Txa3bpGAxdzNJk&q=${tournament && tournament.venueAddress}`
 
     return(
         <>

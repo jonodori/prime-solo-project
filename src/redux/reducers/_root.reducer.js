@@ -6,7 +6,7 @@ import tournamentList from './tournamentList.reducer';
 import details from './details.reducer';
 import userDetails from './userDetails.reducer';
 import gamerTag from './gamertag.reducer';
-import googleMap from './googlemap.reducer';
+import googleMap from './googleMap.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
