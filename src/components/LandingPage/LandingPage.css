@@ -84,7 +84,7 @@ Grid
 
 .title{
   font-family: 'Edu VIC WA NT Beginner', cursive;
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
 }
 
@@ -97,4 +97,8 @@ Grid
 .search{
   margin-left: 50px;
   margin-right: 50px;
+}
+
+.local-tournaments{
+  margin-top: 50px
 }
