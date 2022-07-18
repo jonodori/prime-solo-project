@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect }  from 'react';
 import { useParams } from 'react-router-dom'
+import Button from '@mui/material/Button';
+
+
+
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -61,7 +65,9 @@ function JoinedTournaments() {
           <td>{users.organizer_contact}</td>
           <td>{users.gamertag}</td>
           <td><img src={user.image_url} /></td>
-          <td><button className="btn btn_sizeSm" onClick={() => 
+          <td>
+          {/* <Button variant="contained" color="danger" onClick{() => */}
+            <Button variant="contained" color="error" onClick={() => 
             {
               swal({
                 title: "Are you want to cancel Joined Tournament?",
@@ -84,7 +90,7 @@ function JoinedTournaments() {
           }
             }>
         Cancel
-        </button>
+        </Button>
         </td>
         </tr>
         ))}

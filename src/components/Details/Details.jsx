@@ -13,6 +13,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import './Details.css'
+import Button from '@mui/material/Button';
 
 
 function Details(){
@@ -85,7 +86,7 @@ function Details(){
         
         <br></br>
         <iframe
-              class="iframe"
+              className="iframe"
               src={url}
       
               width="600"
@@ -112,8 +113,8 @@ function Details(){
         
 
         {(user.id)?
-        
-        <button className="btn btn_sizeSm" onClick={
+        <Button variant="contained" color="secondary" type="Submit" onClick={
+        // <button className="btn btn_sizeSm" onClick={
           () => {
             swal({
               title: "Are you sure you want to join this tournament?",
@@ -134,7 +135,7 @@ function Details(){
           }
         }>  
         Join Tournament
-        </button> 
+        </Button>
         :
         <button className="btn btn_sizeSm" onClick={onLogin}>
         Login to Join Tournament

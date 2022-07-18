@@ -16,12 +16,32 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from "@mui/icons-material/Close";
 import FolderIcon from "@mui/icons-material/Folder";
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import { useHistory } from 'react-router-dom';
 
 
-
-
+const itemList = [
+  {
+    text: 'Home',
+    icon: <HomeIcon />,
+    onClick: () => history.push("/"),
+  },
+  {
+    text: 'Joined Tournament',
+    icon: <SportsEsportsIcon />,
+    onClick: () => history.push("/join"),
+  },
+  {
+    text: 'Edit',
+    icon: <HomeIcon />,
+    onClick: () => history.push("/edit"),
+  },
+];
 
 export default function TemporaryDrawer() {
+
+  const history = useHistory();
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -37,6 +57,14 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
+  const handleHome = (event) => {
+    history.push('/home')
+  }
+
+  const handleJoin = (event) => {
+    history.push('/join')
+  }
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -45,11 +73,25 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className="NavBar">
-        {['Home', 'Joined', 'Edit Profile', 'About'].map((text, index) => (
+        {['Home', 'Joined Tournament', 'Edit Profile', 'About'].map((text, index) => (
           
           <ListItem key={text} disablePadding>
-            <Link className="tournament-link" to="/home" style={{ textDecoration: 'none' }}>
-            <ListItemButton >
+            {/* <Link className="tournament-link" to="/home" style={{ textDecoration: 'none' }}> */}
+            <ListItemButton component={Link} to="/">
+            
+              <ListItemIcon >
+              
+                {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
+               
+              </ListItemIcon>
+              
+              <ListItemText primary={text} />
+
+              
+            </ListItemButton>
+
+
+            {/* <ListItemButton onClick ={handleJoin}>
             
               <ListItemIcon>
               
@@ -58,22 +100,27 @@ export default function TemporaryDrawer() {
               </ListItemIcon>
               
               <ListItemText primary={text} />
-            </ListItemButton>
-            </Link>
+            </ListItemButton> */}
+
+            {/* </Link> */}
+
+            
+            
+            
           </ListItem>
           
         )
         )}
       </List>
-      
-      
+      <Divider />
+  
     </Box>
   );
 
   return (
     <>
     <div>
-      {['Nav'].map((anchor) => (
+      {['Menu'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
