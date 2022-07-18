@@ -18,6 +18,7 @@ function AboutPage() {
             <li>Express</li>
 
             <li>Redux, Sagas </li>
+            <li>Material UI</li>
             </ul>
 
           

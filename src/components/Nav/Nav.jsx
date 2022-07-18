@@ -53,7 +53,7 @@ const menuList= [
   {
     text: 'Login',
     icon: LoginIcon,
-    link: "/about",
+    link: "/login",
   },
   {
     text: 'Logout',
