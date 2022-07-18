@@ -11,6 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import './JoinedTournaments.css'
 
 
 
@@ -68,7 +69,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   return (
     <>
     
-    <div className="container">
+    <div className="join-container">
       <h2>Tournaments Joined</h2>
 
     <TableContainer component={Paper}>
@@ -82,10 +83,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
             <StyledTableCell align="right">Tournament Cancel</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody >
           {user && user.map(users => (
             <StyledTableRow key={user.id}>
-              <StyledTableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row" >
               {users.tournament_name}
               </StyledTableCell>
               <StyledTableCell align="right">{users.address}</StyledTableCell>
@@ -122,9 +123,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
         </TableBody>
       </Table>
     </TableContainer>
-
-    
-      
+  
     </div>
     
    
