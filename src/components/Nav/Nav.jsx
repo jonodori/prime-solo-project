@@ -17,26 +17,53 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from "@mui/icons-material/Close";
 import FolderIcon from "@mui/icons-material/Folder";
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LogOutButton from '../LogOutButton/LogOutButton';
+
 import { useHistory } from 'react-router-dom';
+
 
 
 const itemList = [
   {
     text: 'Home',
     icon: <HomeIcon />,
-    onClick: () => history.push("/"),
+    link: "/home",
   },
   {
     text: 'Joined Tournament',
-    icon: <SportsEsportsIcon />,
-    onClick: () => history.push("/join"),
+    icon: SportsEsportsIcon ,
+    link: "/join"
   },
   {
     text: 'Edit',
-    icon: <HomeIcon />,
-    onClick: () => history.push("/edit"),
+    icon: LoginIcon,
+    link: "/edit",
   },
+  {
+    text: 'About',
+    icon:  LogoutIcon,
+    link: "/about",
+  }
+
 ];
+
+const menuList= [
+  {
+    text: 'Login',
+    icon: LoginIcon,
+    link: "/about",
+  },
+  {
+    text: 'Logout',
+    icon:  LogoutIcon,
+    link: <LogOutButton />
+  },
+  
+]
+
+
 
 export default function TemporaryDrawer() {
 
@@ -57,7 +84,7 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
-  const handleHome = (event) => {
+  const logOut = (event) => {
     history.push('/home')
   }
 
@@ -73,39 +100,21 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className="NavBar">
-        {['Home', 'Joined Tournament', 'Edit Profile', 'About'].map((text, index) => (
+        {itemList.map((words, index) => (
           
-          <ListItem key={text} disablePadding>
+          <ListItem key={words.text} disablePadding>
             {/* <Link className="tournament-link" to="/home" style={{ textDecoration: 'none' }}> */}
-            <ListItemButton component={Link} to="/">
+            <ListItemButton component={Link} to={words.link}>
             
               <ListItemIcon >
               
-                {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
+                {index % 4 === 0 ? <HomeIcon /> : <SportsEsportsIcon />  }
                
               </ListItemIcon>
               
-              <ListItemText primary={text} />
-
-              
+              <ListItemText primary={words.text} />
+  
             </ListItemButton>
-
-
-            {/* <ListItemButton onClick ={handleJoin}>
-            
-              <ListItemIcon>
-              
-                {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
-               
-              </ListItemIcon>
-              
-              <ListItemText primary={text} />
-            </ListItemButton> */}
-
-            {/* </Link> */}
-
-            
-            
             
           </ListItem>
           
@@ -113,7 +122,20 @@ export default function TemporaryDrawer() {
         )}
       </List>
       <Divider />
-  
+      <List>
+        {menuList.map((menu, index) => (
+          <ListItem key={menu.text} disablePadding>
+            <ListItemButton component={Link} to={menu.link}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <LoginIcon /> : <LogoutIcon />}
+              </ListItemIcon>
+              <ListItemText primary={menu.text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+
+
     </Box>
   );
 

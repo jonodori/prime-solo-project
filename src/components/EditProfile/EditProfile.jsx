@@ -44,7 +44,7 @@ function EditProfile(){
     return(
     <>
    
-    <div class="edit-container">
+    <div className="edit-container">
     <div>
         gamertag: {user.gamertag}
     </div>

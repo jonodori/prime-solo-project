@@ -106,7 +106,6 @@ function LandingPage() {
         component="img"
         height="140"
         image={tournament.images[0] && tournament.images[0].url}
-        alt="green iguana"
         
       />
       
