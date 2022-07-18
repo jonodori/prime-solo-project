@@ -98,7 +98,7 @@ function LandingPage() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minHeight="30vh"
+        minHeight="50vh"
 >
       
       <Link to = {`/details/${tournament.id}`}><Card sx={{ width: 900 }}>

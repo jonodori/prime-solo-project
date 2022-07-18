@@ -37,7 +37,7 @@ const itemList = [
     link: "/join"
   },
   {
-    text: 'Edit',
+    text: 'Edit Profile',
     icon: LoginIcon,
     link: "/edit",
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutPage.css'
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -19,6 +20,7 @@ function AboutPage() {
 
             <li>Redux, Sagas </li>
             <li>Material UI</li>
+            <li>Postgres, Postico, Postman</li>
             </ul>
 
           
@@ -40,7 +42,9 @@ function AboutPage() {
 
             <li>And of course my wise instructor Edan!  </li>
 
-
+        <p>LinkedIn: <a href> https://www.linkedin.com/in/jonathan-palalay-94004443/</a></p>
+        <img class="linked-in" src="IMG_E36E6EFD56F0-1.jpeg" />
+        
     </div>
   );
 }
