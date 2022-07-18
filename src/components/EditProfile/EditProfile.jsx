@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useParams} from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import './EditProfile.css'
+import './EditProfile.css';
 
 
 function EditProfile(){
